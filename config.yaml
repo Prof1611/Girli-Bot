@@ -1,34 +1,20 @@
 # =============================================================
-# Humberbot Configuration
+# GIRLI Bot Configuration
 # -------------------------------------------------------------
-# Comments describe how the bot uses each value inside Humberbot.
+# Comments describe how the bot uses each value inside GIRLI Bot.
 # =============================================================
 
 bot:
-  # Listening presence lines that promote Holly Humberstone music and news.
+  # Listening presence lines that promote GIRLI music and news.
   # Leave at least one entry.
   statuses:
-    - "The Walls Are Way Too Thin"
-    - "Deep End"
-    - "Falling Asleep At The Wheel"
-    - "London Is Lonely"
-    - "Scarlett"
-    - "Sleep Tight"
-    - "Haunted House"
-    - "Can You Afford To Lose Me?"
-    - "Girl"
-    - "The Alley"
-    - "Vanilla"
-    - "Into Your Room"
-    - "Paint My Bedroom Black"
-    - "Lauren"
-    - "Superbloodmoon"
-    - "Ghost Me"
-    - "Antichrist"
-    - "Kissing In Swimming Pools"
-    - "Hive"
+    - "Now playing GIRLI"
+    - "Watching for tour updates"
+    - "Keeping the community in sync"
+    - "Listening for new releases"
+    - "Powered by GIRLI Bot"
 
-  # Channel that receives forwarded direct messages sent to Humberbot.
+  # Channel that receives forwarded direct messages sent to GIRLI Bot.
   # Set to null to disable DM forwarding entirely.
   dm_forward_channel_id: 1031973393886617670
 
