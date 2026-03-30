@@ -82,7 +82,7 @@ class CommunityWelcome(commands.Cog):
             else "the getting-started channel"
         )
         embed = discord.Embed(
-            title="Welcome to the Official Home of GIRLI.",
+            title="Welcome to the Official Home of girli.",
             description=(
                 f"Welcome {member.mention}, we’re so happy you’re here!\n"
                 f"Make sure to check out the {guide_channel} to find your way around!"
