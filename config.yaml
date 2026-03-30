@@ -1,0 +1,108 @@
+# =============================================================
+# Humberbot Configuration
+# -------------------------------------------------------------
+# Comments describe how the bot uses each value inside Humberbot.
+# =============================================================
+
+bot:
+  # Listening presence lines that promote Holly Humberstone music and news.
+  # Leave at least one entry.
+  statuses:
+    - "The Walls Are Way Too Thin"
+    - "Deep End"
+    - "Falling Asleep At The Wheel"
+    - "London Is Lonely"
+    - "Scarlett"
+    - "Sleep Tight"
+    - "Haunted House"
+    - "Can You Afford To Lose Me?"
+    - "Girl"
+    - "The Alley"
+    - "Vanilla"
+    - "Into Your Room"
+    - "Paint My Bedroom Black"
+    - "Lauren"
+    - "Superbloodmoon"
+    - "Ghost Me"
+    - "Antichrist"
+    - "Kissing In Swimming Pools"
+    - "Hive"
+
+  # Channel that receives forwarded direct messages sent to Humberbot.
+  # Set to null to disable DM forwarding entirely.
+  dm_forward_channel_id: 1031973393886617670
+
+channels:
+  # Forum channel where new live show threads are created by the scraper.
+  liveshows_forum_id: 1451940713913651391
+
+  # Text channel used for welcome embeds when a member joins.
+  welcome_channel_id: 1020030440263925880
+
+  # Channel that is linked in the welcome message to guide new members.
+  new_member_guide_channel_id: 1451933032666890414
+
+  # Channel in which the bot reacts to introduction posts. Set to null to disable.
+  introductions_channel_id: 1020029702188048450
+
+  # Moderation log channel that receives ban/kick/timeout summaries.
+  moderation_logs_channel_id: 1031973393886617670
+
+features:
+  welcome_messages:
+    # Toggle welcome messages. Set to false to disable joining announcements.
+    enabled: true
+
+  autorole:
+    # Automatically assign this role to new members.
+    enabled: false
+    role_id: null
+    # Give the role to bot accounts as well. Usually leave this false.
+    include_bots: false
+
+  giveaways:
+    # Roles allowed to manage giveaways. Leave empty to allow Manage Server.
+    manager_role_ids: [1440017158884298904]
+    # Optional role to ping when a giveaway starts. Set to null to disable.
+    ping_role_id: null
+    defaults:
+      # Default number of winners when starting a giveaway.
+      winner_count: 1
+      # Default duration (supports values like "30m", "2h", "1d").
+      duration: "1h"
+      # Maximum entries per user by default.
+      max_entries_per_user: 1
+    labels:
+      # Button labels shown on the giveaway message.
+      enter_button_label: "Enter"
+      leave_button_label: "Leave"
+
+  songlink:
+    # API endpoint used to fetch track details. Normally leave as default.
+    base_url: "https://api.song.link/v1-alpha.1/links"
+    # How long to wait for the Songlink API before timing out (seconds).
+    timeout_seconds: 12
+    # Preferred order when listing streaming services on the track embed.
+    platform_order:
+      - spotify
+      - appleMusic
+      - youtube
+      - youtubeMusic
+      - itunes
+      - amazonMusic
+      - amazonStore
+      - deezer
+      - tidal
+      - soundcloud
+      - boomplay
+      - gaana
+      - saavn
+
+appearance:
+  colours:
+    # Embed colour used for success messages.
+    success: "#0ca115"
+    # Embed colour used for informative messages.
+    info: "#D1C52E"
+    # Embed colour used for error messages.
+    error: "#ED4245"

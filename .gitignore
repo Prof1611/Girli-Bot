@@ -1,0 +1,4 @@
+cogs/__pycache__/
+.env
+database.db
+audit.log
