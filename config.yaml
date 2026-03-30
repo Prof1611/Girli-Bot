@@ -76,6 +76,15 @@ features:
       enter_button_label: "Enter"
       leave_button_label: "Leave"
 
+  features:
+    starboard:
+      channel_id: 1488271261544222852
+      threshold: 5
+      emoji: "⭐"
+      allow_self_star: false
+      allow_bot_messages: false
+      ignore_nsfw: true
+
   songlink:
     # API endpoint used to fetch track details. Normally leave as default.
     base_url: "https://api.song.link/v1-alpha.1/links"
