@@ -8,31 +8,44 @@ bot:
   # Listening presence lines that promote GIRLI music and news.
   # Leave at least one entry.
   statuses:
-    - "Now playing GIRLI"
-    - "Watching for tour updates"
-    - "Keeping the community in sync"
-    - "Listening for new releases"
-    - "Powered by GIRLI Bot"
+    - "More Than a Friend"
+    - "Nothing Hurts Like a Girl"
+    - "I Really F**ked It Up"
+    - "Be With Me"
+    - "Romantic Sadness"
+    - "Slap On The Wrist"
+    - "Better Undressed"
+    - "Crush Me Up"
+    - "Two Year Itch"
+    - "Imposter Syndrome"
+    - "Cheap Love"
+    - "Ruthless"
+    - "Ricochet"
+    - "Dysmorphia"
+    - "Has Been"
+    - "Matriarchy"
+    - "I Don't Like Myself"
+    - "Girl I Met On The Internet"
 
   # Channel that receives forwarded direct messages sent to GIRLI Bot.
   # Set to null to disable DM forwarding entirely.
-  dm_forward_channel_id: 1031973393886617670
+  dm_forward_channel_id: 1022166227747090452
 
 channels:
   # Forum channel where new live show threads are created by the scraper.
-  liveshows_forum_id: 1451940713913651391
+  liveshows_forum_id: 
 
   # Text channel used for welcome embeds when a member joins.
-  welcome_channel_id: 1020030440263925880
+  welcome_channel_id: 1012320529186824252
 
   # Channel that is linked in the welcome message to guide new members.
-  new_member_guide_channel_id: 1451933032666890414
+  new_member_guide_channel_id: 1488257188437692606
 
   # Channel in which the bot reacts to introduction posts. Set to null to disable.
-  introductions_channel_id: 1020029702188048450
+  introductions_channel_id: 1024693172351287326
 
   # Moderation log channel that receives ban/kick/timeout summaries.
-  moderation_logs_channel_id: 1031973393886617670
+  moderation_logs_channel_id: 1488267252221608027
 
 features:
   welcome_messages:
@@ -48,7 +61,7 @@ features:
 
   giveaways:
     # Roles allowed to manage giveaways. Leave empty to allow Manage Server.
-    manager_role_ids: [1440017158884298904]
+    manager_role_ids: [1022165463909806221]
     # Optional role to ping when a giveaway starts. Set to null to disable.
     ping_role_id: null
     defaults:
