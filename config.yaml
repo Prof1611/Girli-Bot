@@ -1,11 +1,11 @@
 # =============================================================
-# GIRLI Bot Configuration
+# girli hq Configuration
 # -------------------------------------------------------------
-# Comments describe how the bot uses each value inside GIRLI Bot.
+# Comments describe how the bot uses each value inside girli hq.
 # =============================================================
 
 bot:
-  # Listening presence lines that promote GIRLI music and news.
+  # Listening presence lines that promote girli music and news.
   # Leave at least one entry.
   statuses:
     - "More Than a Friend"
@@ -27,7 +27,7 @@ bot:
     - "I Don't Like Myself"
     - "Girl I Met On The Internet"
 
-  # Channel that receives forwarded direct messages sent to GIRLI Bot.
+  # Channel that receives forwarded direct messages sent to girli hq.
   # Set to null to disable DM forwarding entirely.
   dm_forward_channel_id: 1022166227747090452
 
