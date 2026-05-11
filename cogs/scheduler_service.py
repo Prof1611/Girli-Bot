@@ -4,8 +4,11 @@ import json
 import logging
 import os
 import uuid
+import io
+import base64
 from zoneinfo import ZoneInfo
 from typing import Any, Dict, List, Optional
+
 
 import discord
 from discord import AllowedMentions
@@ -220,9 +223,26 @@ class ScheduledDispatcher:
 
         try:
             if payload_type == "message":
+                files = []
+                for attachment in payload.get("attachments", []):
+                    encoded = attachment.get("content_b64")
+                    if not encoded:
+                        continue
+                    data = base64.b64decode(encoded)
+                    filename = attachment.get("filename") or "attachment"
+                    files.append(
+                        discord.File(
+                            fp=io.BytesIO(data),
+                            filename=filename,
+                            description=attachment.get("description"),
+                            spoiler=bool(attachment.get("spoiler", False)),
+                        )
+                    )
+
                 await channel.send(
                     payload.get("content", ""),
                     allowed_mentions=allowed,
+                    files=files or None,
                 )
                 return True
             elif payload_type == "embed":
