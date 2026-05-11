@@ -5,7 +5,8 @@ from discord import app_commands, AllowedMentions
 from discord.ext import commands
 import asyncio
 import datetime
-from typing import List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence
+import base64
 from cogs.scheduler_service import LONDON_TZ, get_dispatcher, parse_schedule_input
 
 
@@ -54,6 +55,24 @@ def first_image_attachment(
         if attachment.content_type and attachment.content_type.startswith("image/"):
             return attachment
     return None
+
+async def serialise_attachments(
+    attachments: Sequence[discord.Attachment],
+) -> List[Dict[str, Any]]:
+    serialised: List[Dict[str, Any]] = []
+    for attachment in attachments:
+        data = await attachment.read()
+        serialised.append(
+            {
+                "filename": attachment.filename,
+                "description": attachment.description,
+                "spoiler": attachment.is_spoiler(),
+                "content_b64": base64.b64encode(data).decode("ascii"),
+            }
+        )
+    return serialised
+
+
 
 
 # --- Modal for normal message input ---
@@ -140,7 +159,7 @@ class MessageModal(discord.ui.Modal, title="Send a Custom Message"):
                     channel_id=self.target_channel.id,
                     author_id=interaction.user.id,
                     execute_at=self.schedule_at,
-                    payload={"type": "message", "content": message_value},
+                    payload={"type": "message", "content": message_value, "attachments": await serialise_attachments(self.attachments)},
                 )
                 success_embed = discord.Embed(
                     title="Custom Message Scheduled",
@@ -626,14 +645,6 @@ class Message(commands.Cog):
                     await interaction.response.send_message(embed=error, ephemeral=True)
                     return
 
-                if attachments:
-                    error = make_embed(
-                        "Attachments Not Supported",
-                        "Scheduled custom messages currently cannot include attachments.",
-                        discord.Color.red(),
-                    )
-                    await interaction.response.send_message(embed=error, ephemeral=True)
-                    return
             # Basic permission check for ability to send messages at all
             perms = channel.permissions_for(interaction.guild.me)
             if not perms.send_messages:
